@@ -1,0 +1,66 @@
+LibreCare/
+│
+├── /Models
+│   ├── Profile.cs          # Entity for family members (mom, dad, kids)
+│   ├── Doctor.cs           # Entity for doctors
+│   ├── Medication.cs       # Entity for medications
+│   ├── Appointment.cs      # Entity for appointments
+│   ├── Condition.cs        # Entity for health conditions
+│   ├── Note.cs             # Entity for notes or journal entries
+│   ├── Symptom.cs          # Entity for symptom tracking
+│   ├── Document.cs         # Entity for uploaded files/documents
+│   └── ...                 # Other entities as needed
+│
+├── /Data
+│   └── CaregiverContext.cs # EF Core DbContext with DbSets for all entities
+│   ├── Configurations
+│
+├── /Services
+│   ├── ProfileService.cs       # CRUD + business rules for profiles
+│   ├── DoctorService.cs        # CRUD + business rules for doctors
+│   ├── MedicationService.cs    # CRUD + business rules for medications
+│   └── ...                     # Services for other entities (Appointments, Conditions, Notes, Documents, etc.)
+│
+├── /Pages
+│   ├── /Profiles
+│   │   ├── Index.cshtml        # List of profiles
+│   │   ├── Index.cshtml.cs     # PageModel calling ProfileService
+│   │   ├── Create.cshtml       # Optional: separate create form
+│   │   ├── Create.cshtml.cs    # PageModel for create
+│   │   └── Edit.cshtml         # Optional edit page
+│   │       Edit.cshtml.cs
+│   │
+│   ├── /Doctors
+│   │   ├── Index.cshtml
+│   │   ├── Index.cshtml.cs
+│   │   └── ...                 # Create/Edit pages
+│   │
+│   ├── /Medications
+│   │   ├── Index.cshtml
+│   │   ├── Index.cshtml.cs
+│   │   └── ...                 # Create/Edit pages
+│   │
+│   ├── /Appointments
+│   │   └── ...
+│   │
+│   ├── /Notes
+│   │   └── ...
+│   │
+│   ├── /Documents
+│   │   └── ...
+│   │
+│   ├── /Shared
+│   │   ├── _Layout.cshtml      # App layout, nav menu
+│   │   ├── _ValidationScriptsPartial.cshtml
+│   │   ├── 404.cshtml
+│   │   └── 404.cshtml.cs
+│   │
+│   └── Index.cshtml            # Optional app dashboard / home page
+│
+├── /wwwroot                    # Static files (CSS, JS, images)
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+├── appsettings.json            # App configuration (DB path for SQLite, etc.)
+├── Program.cs                  # App startup, dependency injection
