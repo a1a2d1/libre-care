@@ -3,9 +3,6 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
-# Temporary
-docs
-
 # Internal documentation (quick notes, iterative desings, etc...)
 docs/internal/
 
