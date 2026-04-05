@@ -6,6 +6,9 @@
 # Internal documentation (quick notes, iterative desings, etc...)
 docs/internal/
 
+# Database files (SQLite)
+*.db
+
 # dotenv files
 .env
 
