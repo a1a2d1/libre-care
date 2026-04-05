@@ -7,12 +7,11 @@ public class Profile
     [Key]
     public int Id { get; set; }
 
-    [Required]
-    [StringLength(100, MinimumLength = 2)]
+    [Required, StringLength(100, MinimumLength = 2)]
     public required string Name { get; set; }
 
     // Indicates whether this is the default profile for the user
-    public bool IsDefault  { get; set; }
+    public bool IsActive  { get; set; }
     public DateOnly? BirthDate { get; set; } // Nullable
 
     // UTC timestamp when the profile was created
