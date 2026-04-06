@@ -1,0 +1,33 @@
+@page
+@model LibreCare.Pages.Profiles.IndexModel
+
+<h1>Profiles</h1>
+
+<p>
+    <a asp-page="Create">Create New Profile</a>
+</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Active</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var profile in Model.Profiles)
+    {
+        <tr>
+            <td>@profile.Name</td>
+            <td>@profile.BirthDate</td>
+            <td>
+                @if (profile.IsActive)
+                {
+                    <strong>Active</strong>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
