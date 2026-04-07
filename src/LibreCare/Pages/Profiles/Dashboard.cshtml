@@ -1,0 +1,9 @@
+@page "{id:int}"
+@model LibreCare.Pages.Profiles.DashboardModel
+
+<h1>Dashboard</h1>
+
+@if (Model.Profile != null)
+{
+    <h2>@Model.Profile.Name</h2>
+}
