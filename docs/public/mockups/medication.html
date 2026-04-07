@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LibreCare - Medications</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#cee5ff",
+              "surface-tint": "#076968",
+              "on-primary-fixed": "#00201f",
+              "on-tertiary-fixed-variant": "#215100",
+              "primary-fixed-dim": "#86d4d2",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "primary-container": "#006766",
+              "on-secondary-fixed": "#001d32",
+              "surface-container-highest": "#e0e3e2",
+              "surface-container": "#ebeeed",
+              "background": "#f7faf9",
+              "primary-fixed": "#a2f0ee",
+              "surface-dim": "#d7dbda",
+              "on-surface": "#181c1c",
+              "secondary": "#106397",
+              "tertiary": "#204f00",
+              "tertiary-fixed": "#aef681",
+              "on-tertiary-fixed": "#092100",
+              "primary": "#004d4c",
+              "surface-bright": "#f7faf9",
+              "on-secondary-container": "#00517f",
+              "on-tertiary-container": "#a1e775",
+              "on-primary-container": "#94e2e0",
+              "outline-variant": "#bec9c8",
+              "secondary-container": "#84c4fe",
+              "inverse-on-surface": "#eef1f0",
+              "secondary-fixed-dim": "#95ccff",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2d3131",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#004a75",
+              "on-background": "#181c1c",
+              "tertiary-container": "#2d6900",
+              "inverse-primary": "#86d4d2",
+              "surface": "#f7faf9",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#3e4948",
+              "tertiary-fixed-dim": "#93d968",
+              "surface-variant": "#e0e3e2",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#00504f",
+              "on-tertiary": "#ffffff",
+              "outline": "#6f7978",
+              "surface-container-low": "#f1f4f3",
+              "surface-container-high": "#e6e9e8",
+              "error": "#ba1a1a"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-xl shadow-sm shadow-teal-900/5 flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-extrabold text-teal-900 font-headline tracking-tight">LibreCare</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-teal-700 transition-all duration-300" href="#">Home</a>
+<a class="text-teal-700 font-bold border-b-2 border-teal-600 transition-all duration-300" href="#">Care Center</a>
+<a class="text-slate-600 font-medium hover:text-teal-700 transition-all duration-300" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-3 active:scale-95 transition-transform cursor-pointer">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="close up portrait of a smiling woman with a warm expression and professional attire against a soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRqnMhDb4wm--NxhwlwZ6r5ilTXaicSLnLZObfcnU1cBGDFsMOS5B6Wbbm4boMwnsMjMs-uAyiPJG7uGkjR07BTUeqwgAgRj3BOOki_SmSYOwUL9LXDHAPTsuWOpC_Pcu1PK0PasoHQGZ2LlTox-gWL_HnMOQALaqTUASBarQKg6yDeJWOnKsmNY6034lcB0qLvovmGeHHqRdXDt7irJueFX0hQHRH0rLcwAYE7HiG6qmmGJnTXuOUM4UaI2MsuwUk4ris2yb9qQdb"/>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 pt-24 bg-slate-50 flex flex-col space-y-1 overflow-y-auto z-40">
+<div class="px-8 mb-8">
+<h2 class="font-headline text-xl font-bold text-teal-900">LibreCare</h2>
+<p class="text-xs text-slate-500 font-medium">Family Management</p>
+</div>
+<a class="flex items-center space-x-3 text-slate-500 py-3 px-8 hover:text-teal-700 hover:bg-teal-50 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 py-3 px-8 hover:text-teal-700 hover:bg-teal-50 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-medium">Conditions</span>
+</a>
+<a class="flex items-center space-x-3 text-teal-900 bg-teal-100/60 rounded-r-2xl py-3 px-8 border-l-4 border-teal-600 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="medication" style="font-variation-settings: 'FILL' 1;">medication</span>
+<span class="font-medium">Medications</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 py-3 px-8 hover:text-teal-700 hover:bg-teal-50 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="medical_information">medical_information</span>
+<span class="font-medium">Doctors</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 py-3 px-8 hover:text-teal-700 hover:bg-teal-50 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-medium">Appointments</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 py-3 px-8 hover:text-teal-700 hover:bg-teal-50 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-medium">Symptom Tracker</span>
+</a>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-72 px-12 py-10 pb-24">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div class="space-y-1">
+<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Active Medications</h1>
+<p class="text-on-surface-variant text-lg">Manage current prescriptions and daily supplement intake.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    Add New Medication
+                </button>
+</div>
+<!-- Bento Layout Medications Grid -->
+<div class="space-y-6">
+<!-- Single Medication Item -->
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center gap-8 transition-all hover:bg-surface-container-high group">
+<div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl" data-icon="pill">pill</span>
+</div>
+<div class="flex-1 grid grid-cols-4 gap-6 items-center">
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Medication</p>
+<h3 class="font-headline font-bold text-xl text-on-surface">Lisinopril</h3>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Dosage &amp; Frequency</p>
+<p class="text-on-surface-variant font-medium">10mg, Once Daily</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Next Dose</p>
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                                Today, 8:00 AM
+                            </div>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Refill Status</p>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-sm font-bold">12 Days Remaining</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-3 rounded-lg bg-tertiary-container text-on-tertiary-container font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                            Taken
+                        </button>
+<button class="p-3 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-3 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Another Medication Item -->
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center gap-8 transition-all hover:bg-surface-container-high group">
+<div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl" data-icon="medication">medication</span>
+</div>
+<div class="flex-1 grid grid-cols-4 gap-6 items-center">
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Medication</p>
+<h3 class="font-headline font-bold text-xl text-on-surface">Atorvastatin</h3>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Dosage &amp; Frequency</p>
+<p class="text-on-surface-variant font-medium">20mg, Evening</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Next Dose</p>
+<div class="flex items-center gap-2 text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                                Tonight, 9:00 PM
+                            </div>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Refill Status</p>
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-sm font-bold">Refill Needed</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-3 rounded-lg bg-surface-container-highest text-on-surface-variant font-bold opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+                            Later
+                        </button>
+<button class="p-3 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-3 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Featured Card - Insights -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+<div class="bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline text-2xl font-bold mb-2">Adherence Insight</h2>
+<p class="text-on-primary-container text-lg">You've successfully taken 100% of your medications for the last 7 days. Keep up the great work!</p>
+</div>
+<div class="mt-8 flex gap-4 z-10">
+<button class="bg-white text-primary px-6 py-2 rounded-full font-bold text-sm">View Trends</button>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[12rem]" data-icon="pill">pill</span>
+</div>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div>
+<h2 class="font-headline text-2xl font-bold text-teal-900 mb-2">Pharmacy Contact</h2>
+<div class="flex items-center gap-4 mt-6">
+<img alt="Local pharmacy building" class="w-20 h-20 rounded-lg object-cover" data-alt="front of a modern brightly lit pharmacy with clean glass windows and medical cross sign at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0E2ijFKPQMAlk-bXrmpwGgL79VI2QuNSFTF4Zbqq_v9eLNekVnw4Qr4Y7S_MJlILKvS2SrxUqc9SQ3jobeYm9smaYXgLSh38MuHV_um4m-xP1yqKv2stWKon1xu3qJH4ak2dLDzWM3b5v9IpubBfQp6rygt2PnEZ79NM6VB21VKoMWrZeA8JZROcUqs6wumjTJBU9ktB55pGmVLsTH5oUSfwwsNj6L4e3kac9wDPBq46-Z5KBz63x8vR6-uyZwRwIzvVwdLY2t6Q"/>
+<div>
+<p class="font-bold text-on-surface">Community Care Pharmacy</p>
+<p class="text-on-surface-variant text-sm">(555) 123-4567</p>
+<p class="text-on-surface-variant text-sm">Open until 9:00 PM</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full bg-surface-container-lowest text-primary py-3 rounded-xl font-bold border border-outline-variant hover:bg-white transition-colors">Call Pharmacy</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full py-12 mt-auto bg-slate-100 border-t border-slate-200/50 flex flex-col items-center justify-center space-y-4 text-center px-4">
+<div class="flex space-x-8">
+<a class="text-slate-500 font-inter text-xs tracking-wide hover:text-teal-700 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-slate-500 font-inter text-xs tracking-wide hover:text-teal-700 transition-opacity" href="#">Terms of Service</a>
+<a class="text-slate-500 font-inter text-xs tracking-wide hover:text-teal-700 transition-opacity" href="#">Accessibility</a>
+</div>
+<p class="text-slate-500 font-inter text-xs tracking-wide opacity-80">© 2024 LibreCare Health. All rights reserved.</p>
+</footer>
+<!-- FAB for quick action (Optional based on rules, used on dashboard/meds) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>
