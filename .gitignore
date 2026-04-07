@@ -8,6 +8,8 @@ docs/internal/
 
 # Database files (SQLite)
 *.db
+*.db-shm
+*.db-wal
 
 # dotenv files
 .env
