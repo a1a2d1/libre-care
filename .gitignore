@@ -5,6 +5,7 @@
 
 # Internal documentation (quick notes, iterative desings, etc...)
 docs/internal/
+.LibreCare-backup
 
 # Database files (SQLite)
 *.db
