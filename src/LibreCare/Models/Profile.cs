@@ -8,7 +8,7 @@ public class Profile
     public int Id { get; set; }
 
     [Required, StringLength(100, MinimumLength = 2)]
-    public required string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     // Indicates whether this is the default profile for the user
     public bool IsActive  { get; set; }
