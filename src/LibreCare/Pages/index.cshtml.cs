@@ -1,35 +1,33 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using LibreCare.Data;
+using LibreCare.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibreCare.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly LibreCareContext _context;
+    private readonly ProfileService _profileService;
 
-    public IndexModel(LibreCareContext context)
+    public IndexModel(ProfileService profileService)
     {
-        _context = context;
+        _profileService = profileService;
     }
 
     public async Task<IActionResult> OnGetAsync()
     {
-        var profiles = await _context.Profiles.ToListAsync();
+        var profiles = await _profileService.GetAllAsync();
 
         if (!profiles.Any())
-        {
             return RedirectToPage("/Profiles/Create");
-        }
 
-        var activeProfile = profiles.FirstOrDefault(p => p.IsActive);
+        var activeProfile = await _profileService.GetActiveAsync();
 
         if (activeProfile == null)
         {
             activeProfile = profiles.First();
-            activeProfile.IsActive = true;
-            await _context.SaveChangesAsync();
+            await _profileService.SetActiveAsync(activeProfile.Id);
         }
 
         return RedirectToPage("/Profiles/Dashboard", new { id = activeProfile.Id });

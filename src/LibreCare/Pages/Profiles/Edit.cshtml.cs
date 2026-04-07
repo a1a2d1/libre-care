@@ -1,5 +1,6 @@
 using LibreCare.Data;
 using LibreCare.Models;
+using LibreCare.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -8,29 +9,22 @@ namespace LibreCare.Pages.Profiles;
 
 public class EditModel : PageModel
 {
-    private readonly LibreCareContext _context;
+    private readonly ProfileService _profileService;
 
-    public EditModel(LibreCareContext context)
+    public EditModel(ProfileService profileService)
     {
-        _context = context;
+        _profileService = profileService;
     }
 
-    [BindProperty]
-    public Profile Profile { get; set; } = new();
+    [BindProperty] public Profile Profile { get; set; } = new();
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
+        if (id == null) return NotFound();
 
-        var profile = await _context.Profiles.FindAsync(id);
+        var profile = await _profileService.GetByIdAsync(id.Value);
 
-        if (profile == null)
-        {
-            return NotFound();
-        }
+        if (profile == null) return NotFound();
 
         Profile = profile;
         return Page();
@@ -38,23 +32,9 @@ public class EditModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-        {
-            return Page();
-        }
+        if (!ModelState.IsValid) return Page();
 
-        var existingProfile = await _context.Profiles.FindAsync(Profile.Id);
-
-        if (existingProfile == null)
-        {
-            return NotFound();
-        }
-
-        // Update fields (controlled update)
-        existingProfile.Name = Profile.Name;
-        existingProfile.BirthDate = Profile.BirthDate;
-
-        await _context.SaveChangesAsync();
+        await _profileService.UpdateAsync(Profile);
 
         return RedirectToPage("Index");
     }

@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using LibreCare.Data;
+using LibreCare.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Profile Service
+builder.Services.AddScoped<ProfileService>();
 
 // Add database using DI
 builder.Services.AddDbContext<LibreCareContext>(options =>
@@ -28,6 +32,6 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 app.MapRazorPages()
-   .WithStaticAssets();
+    .WithStaticAssets();
 
 app.Run();

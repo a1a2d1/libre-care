@@ -1,5 +1,6 @@
 using LibreCare.Data;
 using LibreCare.Models;
+using LibreCare.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -8,15 +9,14 @@ namespace LibreCare.Pages.Profiles;
 
 public class CreateModel : PageModel
 {
-    private readonly LibreCareContext _context;
+    private readonly ProfileService _profileService;
 
-    public CreateModel(LibreCareContext context)
+    public CreateModel(ProfileService profileService)
     {
-        _context = context;
+        _profileService = profileService;
     }
 
-    [BindProperty]
-    public Profile Profile { get; set; } = new();
+    [BindProperty] public Profile Profile { get; set; } = new();
 
     public void OnGet()
     {
@@ -24,23 +24,12 @@ public class CreateModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-        {
-            return Page();
-        }
+        if (!ModelState.IsValid) return Page();
 
-        // Deactivate all existing profiles
-        var profiles = await _context.Profiles.ToListAsync();
-        foreach (var p in profiles)
-        {
-            p.IsActive = false;
-        }
-
-        // Make new profile active
+        // MVP: always make new profile active
         Profile.IsActive = true;
 
-        _context.Profiles.Add(Profile);
-        await _context.SaveChangesAsync();
+        await _profileService.CreateAsync(Profile);
 
         return RedirectToPage("Index");
     }
