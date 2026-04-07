@@ -26,6 +26,13 @@
                 {
                     <strong>Active</strong>
                 }
+                else
+                {
+                    <form method="post" asp-page-handler="SetActive">
+                        <input type="hidden" name="id" value="@profile.Id" />
+                        <button type="submit">Set Active</button>
+                    </form>
+                }
             </td>
         </tr>
     }

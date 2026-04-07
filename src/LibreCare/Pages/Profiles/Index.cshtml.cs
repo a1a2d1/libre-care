@@ -1,5 +1,6 @@
 using LibreCare.Data;
 using LibreCare.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,5 +19,19 @@ public class IndexModel : PageModel
     public async Task OnGetAsync()
     {
         Profiles = await _context.Profiles.ToListAsync();
+    }
+
+    public async Task<IActionResult> OnPostSetActiveAsync(int id)
+    {
+        var profiles = await _context.Profiles.ToListAsync();
+
+        foreach (var p in profiles)
+        {
+            p.IsActive = p.Id == id;
+        }
+
+        await _context.SaveChangesAsync();
+
+        return RedirectToPage();
     }
 }
