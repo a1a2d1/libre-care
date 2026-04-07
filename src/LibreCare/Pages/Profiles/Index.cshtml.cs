@@ -34,4 +34,36 @@ public class IndexModel : PageModel
 
         return RedirectToPage();
     }
+
+    public async Task<IActionResult> OnPostDeleteAsync(int id)
+    {
+        var profile = await _context.Profiles.FindAsync(id);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
+        bool wasActive = profile.IsActive;
+
+        _context.Profiles.Remove(profile);
+        await _context.SaveChangesAsync();
+
+        // If we deleted the active profile, set a new one
+        if (!wasActive)
+        {
+            return RedirectToPage();
+        }
+
+        var nextProfile = await _context.Profiles.FirstOrDefaultAsync();
+        if (nextProfile == null)
+        {
+            return RedirectToPage();
+        }
+
+        nextProfile.IsActive = true;
+        await _context.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
 }
