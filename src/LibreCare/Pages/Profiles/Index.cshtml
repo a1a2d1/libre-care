@@ -13,6 +13,7 @@
         <th>Name</th>
         <th>Birth Date</th>
         <th>Active</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +34,9 @@
                         <button type="submit">Set Active</button>
                     </form>
                 }
+            </td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@profile.Id">Edit</a>
             </td>
         </tr>
     }

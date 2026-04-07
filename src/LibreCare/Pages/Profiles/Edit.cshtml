@@ -1,0 +1,30 @@
+@page "{id:int}"
+@model LibreCare.Pages.Profiles.EditModel
+
+<h1>Edit Profile</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Profile.Id" />
+
+    <div>
+        <label>Name</label>
+        <input asp-for="Profile.Name" />
+        <span asp-validation-for="Profile.Name"></span>
+    </div>
+
+    <div>
+        <label>Birth Date</label>
+        <input asp-for="Profile.BirthDate" type="date" />
+        <span asp-validation-for="Profile.BirthDate"></span>
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+<p>
+    <a asp-page="Index">Back to List</a>
+</p>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
