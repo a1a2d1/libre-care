@@ -11,4 +11,5 @@ public class LibreCareContext : DbContext
     }
 
     public DbSet<Profile> Profiles { get; set; }
+    public DbSet<Doctor> Doctors { get; set; }
 }

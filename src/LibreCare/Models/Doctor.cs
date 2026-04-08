@@ -2,17 +2,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LibreCare.Models;
 
-public class Profile
+public class Doctor
 {
     [Key] public int Id { get; set; }
+
+    [Required] public int ProfileId { get; set; }
 
     [Required]
     [StringLength(100, MinimumLength = 2)]
     public string Name { get; set; } = string.Empty;
 
-    // Indicates whether this is the default profile for the user
-    public bool IsActive { get; set; }
-    public DateOnly? BirthDate { get; set; } // Nullable
+    [StringLength(100, MinimumLength = 2)] public string? Specialty { get; set; }
+
+    [Phone] [StringLength(20)] public string? Phone { get; set; }
+
+    [StringLength(250)] public string? Address { get; set; }
 
     // UTC timestamp when the profile was created
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
