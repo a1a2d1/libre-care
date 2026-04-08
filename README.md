@@ -1,66 +1,67 @@
 # LibreCare
 
-LibreCare is a desktop application designed for individuals, families, and
-caregivers who manage the health of loved ones.
+LibreCare is a an app designed for individuals, families, and caregivers who
+manage the health of loved ones.
 
-It helps track doctors, appointments, conditions, medications, and other important information, making caregiving simpler and more organized.
+It helps track doctors, appointments, conditions, medications, and other
+important information, making caregiving simpler and more organized.
 
 By consolidating critical health data in one place, LibreCare reduces stress and
 ensures nothing important is overlooked.
 
-## 🚧 Status
-Early development — first feature slice in progress.
+## Status
 
----
+Early development
 
-## 🧠 Overview
-This project is a locally-run application built using ASP.NET Razor Pages.
-Although it uses web technologies under the hood, it is designed to behave like a desktop application.
+## Overview
+
+LibreCare is a locally-run application built using ASP.NET Core Razor Pages.
+Although it uses web technologies under the hood, it is designed to behave like
+a desktop application.
 
 Planned characteristics:
+
 - Runs locally (no external hosting required)
 - Uses SQLite for lightweight, file-based storage
 - May be packaged with Electron.NET for a desktop-like experience
 - Potential future distribution via MSI installer
 
----
-
-## 📸 Screenshots (Mockups)
-> Add your mockups here early — this is a big win for clarity
+## Screenshots (Mockups)
 
 You can include screenshots like this:
 
-![Screenshot 1](docs/screenshots/screenshot1.png)
-![Screenshot 2](docs/screenshots/screenshot2.png)
+![Dashboard](docs/public/mockups/dashboard.png)
+![Doctor View](docs/public/mockups/doctor.png)
+![Appointment View](docs/public/mockups/appointment-01.png)
+
+For all the mockups see docs/public/mockups.
 
 _These are initial mockups and may not reflect the current implementation._
 
----
+## Goals
 
-## ✨ Goals
-- Provide a fast, simple local tool for [your use case here]
+- Provide a fast, simple local tool for caregivers
 - Avoid complex deployment or cloud dependencies
 - Keep everything self-contained and easy to install
 
----
-
 ## 🛠 Tech Stack
+
 - ASP.NET Core Razor Pages
 - SQLite
 - (Planned) Electron.NET
 - (Planned) Windows MSI installer
 
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
-- .NET SDK (version X.X or later)
+
+- .NET SDK (version 10.0 or later)
 
 ### Run locally
+
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/a1a2d1/libre-care.git
+cd libre-care
 dotnet run
 ```
 
@@ -70,33 +71,20 @@ Then open your browser to:
 http://localhost:5000
 ```
 
----
+## Roadmap (rough)
 
-## **PART 3 — Rest of README**
-```markdown
-## 📦 Project Structure (early)
-
-/Pages -> Razor Pages UI
-/Data -> Database context and models
-/wwwroot -> Static assets
-
----
-
-## 🗺 Roadmap (rough)
-- [ ] First working feature ("first slice")
+- [x] First working feature ("first slice")
 - [ ] Basic UI layout
 - [ ] SQLite integration
 - [ ] Local data persistence
 - [ ] Electron.NET wrapper
 - [ ] MSI installer packaging
 
----
+## Notes
 
-## ⚠️ Notes
-- This is an early-stage project — expect breaking changes
+- This is an early-stage project--expect breaking changes
 - Structure and tooling may evolve significantly
 
----
+## License
 
-## 📄 License
-[Choose a license or leave this blank for now]
+AGPL-3.0 license--see LICENSE
